@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "restful-api-cafe_do_an_thiet_ke_cnpm",
   "main": "index.js",
-  "repository": "https://github.com/tonytran99/do_an_thiet_ke_cnpm_20202.git",
-  "author": "tonytran99",
+  "repository": "https://github.com/congson19072001/old-old-facebook.git",
+  "author": "congson",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
