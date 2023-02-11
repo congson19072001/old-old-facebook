@@ -15,7 +15,7 @@ const io = new Server(chatServer);
 const jwt = require("jsonwebtoken");
 const chatController = require("./controllers/Chats");
 const { Socket } = require('dgram');
-const MessageModel = require("../models/Messages");
+const MessageModel = require("./models/Messages");
 
 
 mongoose.connect(MONGO_URI, {
