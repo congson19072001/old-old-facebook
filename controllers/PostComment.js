@@ -35,9 +35,11 @@ postCommentController.create = async (req, res, next) => {
         let postSaved = await PostModel.findByIdAndUpdate(req.params.postId, {
             countComments: post.countComments ? post.countComments + 1 : 1
         })
-        postCommentSaved = await PostCommentModel.findById(postCommentSaved._id).populate('user', [
-            'username', 'phonenumber', 'avatar'
-        ]);
+        postCommentSaved = await PostCommentModel.findById(postCommentSaved._id).populate({
+            path: 'user', select:'username phonenumber avatar', populate: {
+                path: "avatar"
+            }
+        });
         return res.status(httpStatus.OK).json({
             data: postCommentSaved,
             post: postSaved
