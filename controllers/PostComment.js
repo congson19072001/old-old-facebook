@@ -36,7 +36,7 @@ postCommentController.create = async (req, res, next) => {
             countComments: post.countComments ? post.countComments + 1 : 1
         })
         postCommentSaved = await PostCommentModel.findById(postCommentSaved._id).populate('user', [
-            'username', 'phonenumber'
+            'username', 'phonenumber', 'avatar'
         ]);
         return res.status(httpStatus.OK).json({
             data: postCommentSaved,
