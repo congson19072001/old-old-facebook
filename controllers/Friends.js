@@ -185,7 +185,7 @@ friendsController.listFriends = async (req, res, next) => {
             let requested = await FriendModel.find({ sender: req.userId, status: "1" }).distinct('receiver')
             let accepted = await FriendModel.find({ receiver: req.userId, status: "1" }).distinct('sender')
 
-            let users = await UserModel.find().where('_id').in(requested.concat(accepted)).populate('avatar').populate('cover_image').exec()
+            let users = await UserModel.find().where('_id').select('-password').in(requested.concat(accepted)).populate('avatar').populate('cover_image').exec()
 
             res.status(200).json({
                 code: 200,
